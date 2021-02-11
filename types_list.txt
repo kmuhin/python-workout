@@ -1,0 +1,5 @@
+In [85]: %time list_1 = [*range(100000)]
+Wall time: 2 ms
+
+In [86]: %time list_2 = [i for i in range(100000)]
+Wall time: 4 ms

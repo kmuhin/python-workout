@@ -1,0 +1,36 @@
+# Generators
+In [89]: %time dict_1 = {str(i):i for i in range(10_000)}
+Wall time: 3 ms
+
+In [90]: %time dict_2 = dict.fromkeys(range(10_000),'1')
+Wall time: 1 ms
+
+
+
+In [105]: {str(i):i for i in [1, 2, 3, 4, 5]}
+Out[105]: {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
+
+In [106]: fruits = ['apple', 'mango', 'banana','cherry']
+In [107]: {f:len(f) for f in fruits}
+Out[107]: {'apple': 5, 'mango': 5, 'banana': 6, 'cherry': 6}
+
+In [108]: {f:f.capitalize() for f in fruits}
+Out[108]: {'apple': 'Apple', 'mango': 'Mango', 'banana': 'Banana', 'cherry': 'Cherry'}
+
+In [109]: {f:i for i,f in enumerate(fruits)}
+Out[109]: {'apple': 0, 'mango': 1, 'banana': 2, 'cherry': 3}
+
+## reverse
+In [18]: f_dict = {f:i for i,f in enumerate(fruits)}
+In [19]: f_dict
+Out[19]: {'apple': 0, 'mango': 1, 'banana': 2, 'cherry': 3}
+In [20]: {v:k for k,v in f_dict.items()}
+Out[20]: {0: 'apple', 1: 'mango', 2: 'banana', 3: 'cherry'}
+
+## delete
+In [21]: f_d1 ={f:f.capitalize() for f in fruits}
+    ...: f_d1
+Out[21]: {'apple': 'Apple', 'mango': 'Mango', 'banana': 'Banana', 'cherry': 'Cherry'}
+In [22]: remove_this = {'apple','cherry'}
+In [23]: {key:f_d1[key] for key in f_d1.keys() - remove_this}
+Out[23]: {'banana': 'Banana', 'mango': 'Mango'}
