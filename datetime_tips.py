@@ -33,7 +33,7 @@ p('now max time as .combine():', dt_max, '- .combine() is much faster')
 
 # custom date 2020-09-06 01:21
 ddate = datetime(2020, 9, 6, 1, 21)
-p('ddate', ddate)
+p('ddate', ddate, '- datetime(2020, 9, 6, 1, 21)')
 
 # yesterday timedelta
 yesterday = (datetime.now() - timedelta(days=1))
@@ -54,11 +54,21 @@ p('ddate_formated as .isoformat()', ddate_formated, '- isoformat() is much faste
 
 # timestamp, unixtime
 # the timestamp is always utc
-# float
+# type: float
 now_timestamp = now.timestamp()
 print('datetime.timestamp() is ', type(now_timestamp))
 p('now timestamp', now_timestamp, '- the timestamp is always utc')
 p('ddate timestamp', ddate.timestamp())
+
+# timestamp only seconds
+# type: int
+timestamp_seconds = int(datetime.now().timestamp())
+p('timestamp seconds', timestamp_seconds)
+
+# timestamp only seconds
+# type: str
+timestamp_seconds_str = f'{datetime.now().timestamp():0.0f}'
+p('timestamp seconds', timestamp_seconds_str)
 
 # change zone to UTC
 print('change time zone to UTC with datetime.astimezone(timezone.utc)')
